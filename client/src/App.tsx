@@ -13,7 +13,9 @@ const references = [
   { key: 'asphene', label: 'Asphene' },
 ] as const;
 
-const initialFiles = () => ({ graphene: null, thermonix: null, hvac: null, asphene: null }) as Record<string, File | null>;
+const referenceVideo = { key: 'referenceVideo', label: 'Reference Video' } as const;
+
+const initialFiles = () => ({ graphene: null, thermonix: null, hvac: null, asphene: null, referenceVideo: null }) as Record<string, File | null>;
 const initialSettings: Settings = { model: 'seedance2_5', resolution: '1080p', ratio: '16:9', duration: 30, generateAudio: false };
 
 function normalizeError(error: unknown): ApiErrorShape {
@@ -92,7 +94,7 @@ export default function App() {
     if (!prompt.trim()) return setError({ code: 'VALIDATION_ERROR', message: 'Enter a video prompt.' });
     if (prompt.length > 15_000) return setError({ code: 'VALIDATION_ERROR', message: 'The prompt must be 15,000 characters or fewer.' });
     if (!selectedModel) return setError({ code: 'UNSUPPORTED_MODEL', message: 'Model settings are still loading.' });
-    if (hasFiles && !referencesAllowed) return setError({ code: 'UNSUPPORTED_MODEL', message: `${selectedModel.label} does not accept reference images in text-to-video mode. Remove the images or choose another model.` });
+    if (hasFiles && !referencesAllowed) return setError({ code: 'UNSUPPORTED_MODEL', message: `${selectedModel.label} does not accept reference media in text-to-video mode. Remove the uploaded references or choose another model.` });
     const controller = new AbortController(); requestController.current = controller;
     setPhase('preparing');
     const stageTimer = window.setTimeout(() => setPhase(hasFiles ? 'uploading' : 'starting'), 250);
@@ -122,9 +124,10 @@ export default function App() {
       </header>
       <main className="mx-auto max-w-6xl space-y-5 px-4 py-7 sm:px-6 sm:py-10">
         <section className="section-panel" aria-labelledby="references-heading">
-          <div className="section-heading"><div><span>01</span><h2 id="references-heading">Reference images</h2></div><p>Optional · fixed order</p></div>
+          <div className="section-heading"><div><span>01</span><h2 id="references-heading">Reference media</h2></div><p>Optional · fixed order plus one video</p></div>
           <div className="grid gap-4 sm:grid-cols-2">
             {references.map((reference, index) => <ImageUploadCard key={reference.key} index={index + 1} label={reference.label} file={files[reference.key]} disabled={busy} onChange={(file) => setFiles((current) => ({ ...current, [reference.key]: file }))} onError={(message) => setError({ code: 'IMAGE_ERROR', message })} />)}
+            <ImageUploadCard key={referenceVideo.key} index={references.length + 1} label={referenceVideo.label} kind="video" file={files[referenceVideo.key]} disabled={busy} onChange={(file) => setFiles((current) => ({ ...current, [referenceVideo.key]: file }))} onError={(message) => setError({ code: 'IMAGE_ERROR', message })} />
           </div>
         </section>
         <PromptEditor value={prompt} disabled={busy} onChange={setPrompt} onError={(message) => setError({ code: 'CLIPBOARD_ERROR', message })} />

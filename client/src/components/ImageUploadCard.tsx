@@ -4,19 +4,35 @@ interface Props {
   index: number;
   label: string;
   file: File | null;
+  kind?: 'image' | 'video';
   disabled?: boolean;
   onChange: (file: File | null) => void;
   onError: (message: string) => void;
 }
 
-const allowedTypes = new Set(['image/jpeg', 'image/png', 'image/webp']);
-const maxBytes = 16 * 1024 * 1024;
+const mediaConfig = {
+  image: {
+    allowedTypes: new Set(['image/jpeg', 'image/png', 'image/webp']),
+    accept: '.jpg,.jpeg,.png,.webp,image/jpeg,image/png,image/webp',
+    maxBytes: 16 * 1024 * 1024,
+    noun: 'image',
+    hint: 'JPG, PNG or WebP',
+  },
+  video: {
+    allowedTypes: new Set(['video/mp4', 'video/quicktime', 'video/webm']),
+    accept: '.mp4,.mov,.webm,video/mp4,video/quicktime,video/webm',
+    maxBytes: 64 * 1024 * 1024,
+    noun: 'video',
+    hint: 'MP4, MOV or WebM',
+  },
+} as const;
 
-export function ImageUploadCard({ index, label, file, disabled, onChange, onError }: Props) {
+export function ImageUploadCard({ index, label, file, kind = 'image', disabled, onChange, onError }: Props) {
   const inputId = useId();
   const inputRef = useRef<HTMLInputElement>(null);
   const [dragging, setDragging] = useState(false);
   const [preview, setPreview] = useState<string>();
+  const config = mediaConfig[kind];
 
   useEffect(() => {
     if (!file) { setPreview(undefined); return; }
@@ -27,8 +43,12 @@ export function ImageUploadCard({ index, label, file, disabled, onChange, onErro
 
   const choose = (candidate?: File) => {
     if (!candidate) return;
-    if (!allowedTypes.has(candidate.type)) return onError('Use a JPG, JPEG, PNG, or WebP image.');
-    if (candidate.size > maxBytes) return onError('Each image must be 16 MB or smaller.');
+    if (!config.allowedTypes.has(candidate.type)) {
+      return onError(`Use a ${config.hint} ${config.noun}.`);
+    }
+    if (candidate.size > config.maxBytes) {
+      return onError(`Each ${config.noun} must be ${(config.maxBytes / (1024 * 1024)).toFixed(0)} MB or smaller.`);
+    }
     onChange(candidate);
   };
 
@@ -52,7 +72,9 @@ export function ImageUploadCard({ index, label, file, disabled, onChange, onErro
       >
         {preview ? (
           <>
-            <img src={preview} alt={`${label} reference preview`} className="absolute inset-0 h-full w-full object-cover" />
+            {kind === 'video'
+              ? <video src={preview} muted playsInline controls className="absolute inset-0 h-full w-full object-cover" />
+              : <img src={preview} alt={`${label} reference preview`} className="absolute inset-0 h-full w-full object-cover" />}
             <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
             <div className="relative mt-auto flex w-full items-end justify-between gap-3 p-3 text-left">
               <p className="min-w-0 truncate text-xs text-white/90">{file?.name}</p>
@@ -62,11 +84,11 @@ export function ImageUploadCard({ index, label, file, disabled, onChange, onErro
         ) : (
           <label htmlFor={inputId} className={`flex h-full w-full flex-col items-center justify-center px-5 py-8 ${disabled ? 'cursor-not-allowed' : 'cursor-pointer'}`}>
             <span aria-hidden="true" className="mb-3 grid h-9 w-9 place-items-center rounded-full border border-line bg-panel text-xl text-accent">+</span>
-            <span className="text-sm font-medium text-text">Drop image or browse</span>
-            <span className="mt-1 text-xs text-muted">JPG, PNG or WebP · max 16 MB</span>
+            <span className="text-sm font-medium text-text">Drop {config.noun} or browse</span>
+            <span className="mt-1 text-xs text-muted">{config.hint} · max {(config.maxBytes / (1024 * 1024)).toFixed(0)} MB</span>
           </label>
         )}
-        <input ref={inputRef} id={inputId} type="file" accept=".jpg,.jpeg,.png,.webp,image/jpeg,image/png,image/webp" className="sr-only" disabled={disabled} onChange={(event) => { choose(event.target.files?.[0]); event.target.value = ''; }} />
+        <input ref={inputRef} id={inputId} type="file" accept={config.accept} className="sr-only" disabled={disabled} onChange={(event) => { choose(event.target.files?.[0]); event.target.value = ''; }} />
       </div>
     </article>
   );
