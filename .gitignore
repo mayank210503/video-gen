@@ -4,3 +4,4 @@ server/dist/
 .env
 .DS_Store
 npm-debug.log*
+.env.example
