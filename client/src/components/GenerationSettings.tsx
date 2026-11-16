@@ -30,7 +30,7 @@ export function GenerationSettings({ models, value, disabled, onChange }: Props)
   const fieldClass = 'h-11 w-full rounded-lg border border-line bg-ink/60 px-3 text-sm text-text outline-none focus:border-accent focus:ring-2 focus:ring-accent/15 disabled:opacity-50';
   return (
     <section className="section-panel" aria-labelledby="settings-heading">
-      <div className="section-heading"><div><span>03</span><h2 id="settings-heading">Settings</h2></div></div>
+      <div className="section-heading"><div><span>04</span><h2 id="settings-heading">Settings</h2></div></div>
       {selected && (
         <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-5">
           <label className="setting-label lg:col-span-1">Model

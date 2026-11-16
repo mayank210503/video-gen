@@ -39,6 +39,8 @@ export async function getModels() {
 export async function generateVideo(input: {
   files: Record<string, File | null>;
   prompt: string;
+  gymName: string;
+  imageUrls: Record<string, string>;
   model: string;
   resolution: string;
   ratio: string;
@@ -49,6 +51,8 @@ export async function generateVideo(input: {
   const form = new FormData();
   for (const [name, file] of Object.entries(input.files)) if (file) form.append(name, file);
   form.append('prompt', input.prompt);
+  form.append('gymName', input.gymName);
+  form.append('imageUrls', JSON.stringify(input.imageUrls));
   form.append('model', input.model);
   form.append('resolution', input.resolution);
   form.append('ratio', input.ratio);

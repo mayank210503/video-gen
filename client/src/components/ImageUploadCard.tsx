@@ -5,6 +5,8 @@ interface Props {
   label: string;
   file: File | null;
   kind?: 'image' | 'video';
+  url?: string;
+  onUrlChange?: (url: string) => void;
   disabled?: boolean;
   onChange: (file: File | null) => void;
   onError: (message: string) => void;
@@ -27,7 +29,7 @@ const mediaConfig = {
   },
 } as const;
 
-export function ImageUploadCard({ index, label, file, kind = 'image', disabled, onChange, onError }: Props) {
+export function ImageUploadCard({ index, label, file, kind = 'image', url = '', onUrlChange, disabled, onChange, onError }: Props) {
   const inputId = useId();
   const inputRef = useRef<HTMLInputElement>(null);
   const [dragging, setDragging] = useState(false);
@@ -49,6 +51,7 @@ export function ImageUploadCard({ index, label, file, kind = 'image', disabled, 
     if (candidate.size > config.maxBytes) {
       return onError(`Each ${config.noun} must be ${(config.maxBytes / (1024 * 1024)).toFixed(0)} MB or smaller.`);
     }
+    onUrlChange?.('');
     onChange(candidate);
   };
 
@@ -59,8 +62,8 @@ export function ImageUploadCard({ index, label, file, kind = 'image', disabled, 
           <span className="mr-2 text-xs font-semibold tracking-[.16em] text-accent">0{index}</span>
           <h3 className="inline text-sm font-semibold text-text">{label}</h3>
         </div>
-        {file && !disabled && (
-          <button type="button" onClick={() => onChange(null)} className="rounded px-2 py-1 text-xs text-muted hover:bg-white/5 hover:text-text">Remove</button>
+        {(file || url) && !disabled && (
+          <button type="button" onClick={() => { onChange(null); onUrlChange?.(''); }} className="rounded px-2 py-1 text-xs text-muted hover:bg-white/5 hover:text-text">Remove</button>
         )}
       </div>
       <div
@@ -90,6 +93,9 @@ export function ImageUploadCard({ index, label, file, kind = 'image', disabled, 
         )}
         <input ref={inputRef} id={inputId} type="file" accept={config.accept} className="sr-only" disabled={disabled} onChange={(event) => { choose(event.target.files?.[0]); event.target.value = ''; }} />
       </div>
+      {onUrlChange && <label className="mx-3 mb-3 block text-xs text-muted">Or paste a public image link
+        <input type="url" value={url} disabled={disabled} onChange={(event) => { onChange(null); onUrlChange(event.target.value); }} placeholder="https://example.com/image.jpg" className="mt-2 h-11 w-full rounded-lg border border-line bg-ink/60 px-3 text-sm text-text outline-none focus:border-accent disabled:opacity-50" />
+      </label>}
     </article>
   );
 }

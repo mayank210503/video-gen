@@ -7,15 +7,16 @@ import { VideoResult } from './components/VideoResult';
 import { ApiError, generateVideo, getModels, getTask, type ApiErrorShape, type ModelConfig } from './services/api';
 
 const references = [
-  { key: 'graphene', label: 'Graphene' },
-  { key: 'thermonix', label: 'Thermonix DTX' },
-  { key: 'hvac', label: 'HVAC Filtration' },
-  { key: 'asphene', label: 'Asphene' },
+  { key: 'gymImage1', label: 'Gym image 1' },
+  { key: 'gymImage2', label: 'Gym image 2' },
+  { key: 'gymImage3', label: 'Gym image 3' },
+  { key: 'gymImage4', label: 'Gym image 4' },
+  { key: 'logo', label: 'Gym logo' },
 ] as const;
 
 const referenceVideo = { key: 'referenceVideo', label: 'Reference Video' } as const;
 
-const initialFiles = () => ({ graphene: null, thermonix: null, hvac: null, asphene: null, referenceVideo: null }) as Record<string, File | null>;
+const initialFiles = () => Object.fromEntries([...references, referenceVideo].map(({ key }) => [key, null])) as Record<string, File | null>;
 const initialSettings: Settings = { model: 'seedance2_5', resolution: '1080p', ratio: '16:9', duration: 30, generateAudio: false };
 
 function normalizeError(error: unknown): ApiErrorShape {
@@ -28,6 +29,8 @@ export default function App() {
   const [models, setModels] = useState<ModelConfig[]>([]);
   const [files, setFiles] = useState(initialFiles);
   const [prompt, setPrompt] = useState('');
+  const [gymName, setGymName] = useState('');
+  const [imageUrls, setImageUrls] = useState<Record<string, string>>({});
   const [settings, setSettings] = useState(initialSettings);
   const [phase, setPhase] = useState<GenerationPhase>();
   const [taskId, setTaskId] = useState<string>();
@@ -36,7 +39,7 @@ export default function App() {
   const requestController = useRef<AbortController | undefined>(undefined);
   const busy = Boolean(phase && !['completed', 'failed'].includes(phase));
   const selectedModel = models.find((model) => model.id === settings.model);
-  const hasFiles = useMemo(() => Object.values(files).some(Boolean), [files]);
+  const hasFiles = useMemo(() => Object.values(files).some(Boolean) || Object.values(imageUrls).some((url) => url.trim()), [files, imageUrls]);
   const referencesAllowed = selectedModel?.imageReferenceSupport !== 'none';
 
   useEffect(() => {
@@ -77,11 +80,11 @@ export default function App() {
     void Promise.resolve(context.registerTool({
       name: 'set_video_prompt', title: 'Set video prompt',
       description: 'Set the temporary Runway video prompt shown in the editor. This does not start or save a generation.',
-      inputSchema: { type: 'object', properties: { prompt: { type: 'string', maxLength: 15000 } }, required: ['prompt'], additionalProperties: false },
+      inputSchema: { type: 'object', properties: { prompt: { type: 'string', maxLength: 14000 } }, required: ['prompt'], additionalProperties: false },
       annotations: { readOnlyHint: false, untrustedContentHint: true },
       execute(input: unknown) {
         const next = (input as { prompt?: unknown })?.prompt;
-        if (typeof next !== 'string' || next.length > 15000) throw new Error('A prompt of up to 15,000 characters is required.');
+        if (typeof next !== 'string' || next.length > 14000) throw new Error('A script of up to 14,000 characters is required.');
         setPrompt(next);
         return { updated: true, characters: next.length };
       },
@@ -91,15 +94,20 @@ export default function App() {
 
   const startGeneration = async () => {
     setError(undefined); setVideoUrl(undefined);
-    if (!prompt.trim()) return setError({ code: 'VALIDATION_ERROR', message: 'Enter a video prompt.' });
-    if (prompt.length > 15_000) return setError({ code: 'VALIDATION_ERROR', message: 'The prompt must be 15,000 characters or fewer.' });
+    if (!gymName.trim() || gymName.trim().length > 120) return setError({ code: 'VALIDATION_ERROR', message: 'Enter a gym name of up to 120 characters.' });
+    if (!prompt.trim()) return setError({ code: 'VALIDATION_ERROR', message: 'Enter your gym video script.' });
+    if (prompt.length > 14_000) return setError({ code: 'VALIDATION_ERROR', message: 'The script must be 14,000 characters or fewer.' });
+    for (const url of Object.values(imageUrls).filter((value) => value.trim())) {
+      try { if (new URL(url.trim()).protocol !== 'https:') throw new Error(); }
+      catch { return setError({ code: 'VALIDATION_ERROR', message: 'Image and logo links must be valid public HTTPS URLs.' }); }
+    }
     if (!selectedModel) return setError({ code: 'UNSUPPORTED_MODEL', message: 'Model settings are still loading.' });
     if (hasFiles && !referencesAllowed) return setError({ code: 'UNSUPPORTED_MODEL', message: `${selectedModel.label} does not accept reference media in text-to-video mode. Remove the uploaded references or choose another model.` });
     const controller = new AbortController(); requestController.current = controller;
     setPhase('preparing');
     const stageTimer = window.setTimeout(() => setPhase(hasFiles ? 'uploading' : 'starting'), 250);
     try {
-      const result = await generateVideo({ files, prompt: prompt.trim(), ...settings, signal: controller.signal });
+      const result = await generateVideo({ files, prompt: prompt.trim(), gymName: gymName.trim(), imageUrls, ...settings, signal: controller.signal });
       window.clearTimeout(stageTimer); setPhase('starting'); setTaskId(result.taskId);
     } catch (caught) {
       window.clearTimeout(stageTimer);
@@ -111,6 +119,7 @@ export default function App() {
   const reset = () => {
     requestController.current?.abort();
     setFiles(initialFiles()); setPrompt(''); setSettings(initialSettings); setPhase(undefined); setTaskId(undefined); setVideoUrl(undefined); setError(undefined);
+    setGymName(''); setImageUrls({});
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
@@ -119,16 +128,24 @@ export default function App() {
       <header className="border-b border-line bg-ink/90 backdrop-blur">
         <div className="mx-auto flex max-w-6xl items-center gap-3 px-4 py-5 sm:px-6">
           <div className="grid h-10 w-10 place-items-center rounded-lg border border-accent/30 bg-accent/10 font-semibold text-accent">N</div>
-          <div><h1 className="text-lg font-semibold tracking-tight sm:text-xl">Nanomatrix Runway Generator</h1><p className="text-xs text-muted">Temporary session · nothing is saved</p></div>
+          <div><h1 className="text-lg font-semibold tracking-tight sm:text-xl">Gym Video Generator</h1><p className="text-xs text-muted">Your gym. Your script. Your brand. · Temporary session</p></div>
         </div>
       </header>
       <main className="mx-auto max-w-6xl space-y-5 px-4 py-7 sm:px-6 sm:py-10">
+        <section className="section-panel" aria-labelledby="gym-heading">
+          <div className="section-heading"><div><span>01</span><h2 id="gym-heading">Gym details</h2></div></div>
+          <label htmlFor="gym-name" className="setting-label">Gym name
+            <input id="gym-name" value={gymName} maxLength={120} disabled={busy} onChange={(event) => setGymName(event.target.value)} placeholder="Enter your gym’s name" className="h-11 w-full rounded-lg border border-line bg-ink/60 px-3 text-base text-text outline-none focus:border-accent disabled:opacity-50" />
+          </label>
+          <p className="mt-3 text-xs text-muted">Enter new details for each video. Nothing is saved by this app after a refresh.</p>
+        </section>
         <section className="section-panel" aria-labelledby="references-heading">
-          <div className="section-heading"><div><span>01</span><h2 id="references-heading">Reference media</h2></div><p>Optional · fixed order plus one video</p></div>
+          <div className="section-heading"><div><span>02</span><h2 id="references-heading">Gym images & logo</h2></div><p>Optional · upload or link</p></div>
           <div className="grid gap-4 sm:grid-cols-2">
-            {references.map((reference, index) => <ImageUploadCard key={reference.key} index={index + 1} label={reference.label} file={files[reference.key]} disabled={busy} onChange={(file) => setFiles((current) => ({ ...current, [reference.key]: file }))} onError={(message) => setError({ code: 'IMAGE_ERROR', message })} />)}
+            {references.map((reference, index) => <ImageUploadCard key={reference.key} index={index + 1} label={reference.label} file={files[reference.key]} url={imageUrls[reference.key] ?? ''} onUrlChange={(url) => setImageUrls((current) => ({ ...current, [reference.key]: url }))} disabled={busy} onChange={(file) => setFiles((current) => ({ ...current, [reference.key]: file }))} onError={(message) => setError({ code: 'IMAGE_ERROR', message })} />)}
             <ImageUploadCard key={referenceVideo.key} index={references.length + 1} label={referenceVideo.label} kind="video" file={files[referenceVideo.key]} disabled={busy} onChange={(file) => setFiles((current) => ({ ...current, [referenceVideo.key]: file }))} onError={(message) => setError({ code: 'IMAGE_ERROR', message })} />
           </div>
+          <p className="mt-3 text-xs text-muted">Use direct, publicly accessible HTTPS image links, not sharing pages. References are sent in the order above, with the logo before the optional video.</p>
         </section>
         <PromptEditor value={prompt} disabled={busy} onChange={setPrompt} onError={(message) => setError({ code: 'CLIPBOARD_ERROR', message })} />
         <GenerationSettings models={models} value={settings} disabled={busy} onChange={setSettings} />
@@ -138,7 +155,7 @@ export default function App() {
           </div>
         )}
         <section className="section-panel" aria-labelledby="generate-heading">
-          <div className="section-heading"><div><span>04</span><h2 id="generate-heading">Generate</h2></div></div>
+          <div className="section-heading"><div><span>05</span><h2 id="generate-heading">Generate</h2></div></div>
           <button type="button" onClick={startGeneration} disabled={busy || !models.length} className="button-primary w-full py-4 text-sm uppercase tracking-[.14em] disabled:cursor-not-allowed disabled:opacity-45">{busy ? 'Generation in progress…' : 'Generate video'}</button>
           <p className="mt-3 text-center text-xs text-muted">Reference files are uploaded directly from server memory and are not retained by this app.</p>
         </section>

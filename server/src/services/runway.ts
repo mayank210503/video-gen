@@ -77,7 +77,7 @@ export async function uploadEphemeral(file: Express.Multer.File) {
 
   const form = new FormData();
   for (const [key, value] of Object.entries(fields)) form.append(key, String(value));
-  form.append('file', new Blob([file.buffer], { type: file.mimetype }), file.originalname);
+  form.append('file', new Blob([new Uint8Array(file.buffer)], { type: file.mimetype }), file.originalname);
 
   let uploadResponse: Response;
   try {

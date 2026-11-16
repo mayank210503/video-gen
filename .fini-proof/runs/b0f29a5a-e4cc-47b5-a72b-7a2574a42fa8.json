@@ -1,0 +1,1963 @@
+{
+  "schema": "fini-proof/evidence@2",
+  "runId": "b0f29a5a-e4cc-47b5-a72b-7a2574a42fa8",
+  "tool": {
+    "name": "fini-proof",
+    "version": "0.6.2",
+    "node": "v20.19.5"
+  },
+  "startedAt": "2026-10-09T10:44:28.361Z",
+  "repo": {
+    "git": true,
+    "commit": "997092ca2a30b4f16875f7ce9406483235e13f95",
+    "rootCommit": "dbf405e1257b1055d8424efcfe35eefb9d49c6d0",
+    "dirty": false,
+    "author": "mayank.agrawal210503@gmail.com",
+    "rootCommitDigest": "0e5ce2fdf3b5010266778db7499e60772fe93d1a3b9ab2c99f60009baa2b4779"
+  },
+  "scope": {
+    "mode": "full",
+    "base": null,
+    "baseCommit": null,
+    "mergeBase": null,
+    "ignore": [],
+    "config": null
+  },
+  "snapshot": {
+    "tree_hash": "824116c4b3b735f0f0715b09d7af332df06bdedf",
+    "commit": "997092ca2a30b4f16875f7ce9406483235e13f95",
+    "dirty": false,
+    "status": "MEASURED"
+  },
+  "failOn": "high",
+  "engines": [
+    {
+      "id": "hollow-tests",
+      "version": "0.1.0",
+      "title": "Hollow tests (tests that cannot fail)",
+      "provenance": "finipe scripts/ci/check-vacuous-spec.mjs @ 4ac53b367 (JS/TS); Python rules new",
+      "sha256": "eda2974fe97514f2ae3c52ffa397a49878293b8fadf8ced47986dd5a2471a866",
+      "controls": [
+        {
+          "id": "hollow-tests/NC-1",
+          "kind": "negative",
+          "expect": "NO_ASSERTION",
+          "ok": true,
+          "got": [
+            "NO_ASSERTION"
+          ],
+          "ms": 4.101
+        },
+        {
+          "id": "hollow-tests/NC-2",
+          "kind": "negative",
+          "expect": "TAUTOLOGICAL",
+          "ok": true,
+          "got": [
+            "TAUTOLOGICAL"
+          ],
+          "ms": 0.834
+        },
+        {
+          "id": "hollow-tests/NC-3",
+          "kind": "negative",
+          "expect": "SWALLOWED_CATCH",
+          "ok": true,
+          "got": [
+            "SWALLOWED_CATCH"
+          ],
+          "ms": 1.484
+        },
+        {
+          "id": "hollow-tests/NC-6",
+          "kind": "negative",
+          "expect": "TAUTOLOGICAL",
+          "ok": true,
+          "got": [
+            "TAUTOLOGICAL"
+          ],
+          "ms": 1.922
+        },
+        {
+          "id": "hollow-tests/NC-4",
+          "kind": "negative",
+          "expect": "NO_ASSERTION",
+          "ok": true,
+          "got": [
+            "NO_ASSERTION"
+          ],
+          "ms": 0.868
+        },
+        {
+          "id": "hollow-tests/NC-5",
+          "kind": "negative",
+          "expect": "TAUTOLOGICAL",
+          "ok": true,
+          "got": [
+            "TAUTOLOGICAL"
+          ],
+          "ms": 0.378
+        },
+        {
+          "id": "hollow-tests/NC-7",
+          "kind": "negative",
+          "expect": "PROMISE_NOT_AWAITED",
+          "ok": true,
+          "got": [
+            "PROMISE_NOT_AWAITED"
+          ],
+          "ms": 0.783
+        },
+        {
+          "id": "hollow-tests/NC-8",
+          "kind": "negative",
+          "expect": "DONE_EARLY",
+          "ok": true,
+          "got": [
+            "DONE_EARLY"
+          ],
+          "ms": 0.45
+        },
+        {
+          "id": "hollow-tests/NC-9",
+          "kind": "negative",
+          "expect": "EARLY_RETURN",
+          "ok": true,
+          "got": [
+            "EARLY_RETURN"
+          ],
+          "ms": 0.34
+        },
+        {
+          "id": "hollow-tests/NC-10",
+          "kind": "negative",
+          "expect": "MOCK_ONLY_ASSERTION",
+          "ok": true,
+          "got": [
+            "MOCK_ONLY_ASSERTION"
+          ],
+          "ms": 0.58
+        },
+        {
+          "id": "hollow-tests/NC-11",
+          "kind": "negative",
+          "expect": "TYPE_ONLY_ASSERTION",
+          "ok": true,
+          "got": [
+            "TYPE_ONLY_ASSERTION"
+          ],
+          "ms": 0.424
+        },
+        {
+          "id": "hollow-tests/NC-12",
+          "kind": "negative",
+          "expect": "KEY_PRESENCE_ONLY",
+          "ok": true,
+          "got": [
+            "KEY_PRESENCE_ONLY"
+          ],
+          "ms": 0.174
+        },
+        {
+          "id": "hollow-tests/NC-13",
+          "kind": "negative",
+          "expect": "SWALLOWED_CATCH",
+          "ok": true,
+          "got": [
+            "SWALLOWED_CATCH"
+          ],
+          "ms": 0.822
+        },
+        {
+          "id": "hollow-tests/NC-14",
+          "kind": "negative",
+          "expect": "TAUTOLOGICAL",
+          "ok": true,
+          "got": [
+            "TAUTOLOGICAL"
+          ],
+          "ms": 0.767
+        },
+        {
+          "id": "hollow-tests/NC-15",
+          "kind": "negative",
+          "expect": "TAUTOLOGICAL",
+          "ok": true,
+          "got": [
+            "TAUTOLOGICAL"
+          ],
+          "ms": 0.286
+        },
+        {
+          "id": "hollow-tests/NC-16",
+          "kind": "negative",
+          "expect": "PROMISE_NOT_AWAITED",
+          "ok": true,
+          "got": [
+            "PROMISE_NOT_AWAITED"
+          ],
+          "ms": 0.573
+        },
+        {
+          "id": "hollow-tests/NC-17",
+          "kind": "negative",
+          "expect": "NO_ASSERTION",
+          "ok": true,
+          "got": [
+            "NO_ASSERTION"
+          ],
+          "ms": 0.242
+        },
+        {
+          "id": "hollow-tests/NC-18",
+          "kind": "negative",
+          "expect": "NO_ASSERTION",
+          "ok": true,
+          "got": [
+            "NO_ASSERTION"
+          ],
+          "ms": 0.125
+        },
+        {
+          "id": "hollow-tests/NC-19",
+          "kind": "negative",
+          "expect": "NO_ASSERTION",
+          "ok": true,
+          "got": [
+            "NO_ASSERTION"
+          ],
+          "ms": 0.432
+        },
+        {
+          "id": "hollow-tests/NC-20",
+          "kind": "negative",
+          "expect": "SWALLOWED_CATCH",
+          "ok": true,
+          "got": [
+            "SWALLOWED_CATCH"
+          ],
+          "ms": 0.593
+        },
+        {
+          "id": "hollow-tests/NC-21",
+          "kind": "negative",
+          "expect": "SWALLOWED_CATCH",
+          "ok": true,
+          "got": [
+            "SWALLOWED_CATCH"
+          ],
+          "ms": 0.21
+        },
+        {
+          "id": "hollow-tests/NC-22",
+          "kind": "negative",
+          "expect": "SWALLOWED_CATCH",
+          "ok": true,
+          "got": [
+            "SWALLOWED_CATCH"
+          ],
+          "ms": 0.198
+        },
+        {
+          "id": "hollow-tests/NC-23",
+          "kind": "negative",
+          "expect": "NO_ASSERTION",
+          "ok": true,
+          "got": [
+            "NO_ASSERTION"
+          ],
+          "ms": 0.07
+        },
+        {
+          "id": "hollow-tests/NC-24",
+          "kind": "negative",
+          "expect": "NO_ASSERTION",
+          "ok": true,
+          "got": [
+            "NO_ASSERTION"
+          ],
+          "ms": 0.065
+        },
+        {
+          "id": "hollow-tests/NC-25",
+          "kind": "negative",
+          "expect": "NO_ASSERTION",
+          "ok": true,
+          "got": [
+            "NO_ASSERTION"
+          ],
+          "ms": 0.08
+        },
+        {
+          "id": "hollow-tests/PC-1",
+          "kind": "positive",
+          "rule": "NO_ASSERTION",
+          "ok": true,
+          "got": [],
+          "ms": 0.127
+        },
+        {
+          "id": "hollow-tests/PC-2",
+          "kind": "positive",
+          "rule": "TAUTOLOGICAL",
+          "ok": true,
+          "got": [],
+          "ms": 0.118
+        },
+        {
+          "id": "hollow-tests/PC-3",
+          "kind": "positive",
+          "ok": true,
+          "got": [],
+          "ms": 0.2
+        },
+        {
+          "id": "hollow-tests/PC-4",
+          "kind": "positive",
+          "rule": "SWALLOWED_CATCH",
+          "ok": true,
+          "got": [],
+          "ms": 0.269
+        },
+        {
+          "id": "hollow-tests/PC-5",
+          "kind": "positive",
+          "rule": "PROMISE_NOT_AWAITED",
+          "ok": true,
+          "got": [],
+          "ms": 0.198
+        },
+        {
+          "id": "hollow-tests/PC-6",
+          "kind": "positive",
+          "rule": "DONE_EARLY",
+          "ok": true,
+          "got": [],
+          "ms": 0.134
+        },
+        {
+          "id": "hollow-tests/PC-7",
+          "kind": "positive",
+          "rule": "EARLY_RETURN",
+          "ok": true,
+          "got": [],
+          "ms": 0.106
+        },
+        {
+          "id": "hollow-tests/PC-8",
+          "kind": "positive",
+          "rule": "MOCK_ONLY_ASSERTION",
+          "ok": true,
+          "got": [],
+          "ms": 0.361
+        },
+        {
+          "id": "hollow-tests/PC-9",
+          "kind": "positive",
+          "rule": "TYPE_ONLY_ASSERTION",
+          "ok": true,
+          "got": [],
+          "ms": 0.098
+        },
+        {
+          "id": "hollow-tests/PC-10",
+          "kind": "positive",
+          "rule": "KEY_PRESENCE_ONLY",
+          "ok": true,
+          "got": [],
+          "ms": 0.097
+        },
+        {
+          "id": "hollow-tests/PC-11",
+          "kind": "positive",
+          "rule": "SWALLOWED_CATCH",
+          "ok": true,
+          "got": [],
+          "ms": 0.18
+        },
+        {
+          "id": "hollow-tests/PC-12",
+          "kind": "positive",
+          "rule": "TAUTOLOGICAL",
+          "ok": true,
+          "got": [],
+          "ms": 0.118
+        },
+        {
+          "id": "hollow-tests/PC-13",
+          "kind": "positive",
+          "rule": "TAUTOLOGICAL",
+          "ok": true,
+          "got": [],
+          "ms": 0.173
+        },
+        {
+          "id": "hollow-tests/PC-14",
+          "kind": "positive",
+          "rule": "NO_ASSERTION",
+          "ok": true,
+          "got": [],
+          "ms": 0.094
+        },
+        {
+          "id": "hollow-tests/PC-15",
+          "kind": "positive",
+          "rule": "NO_ASSERTION",
+          "ok": true,
+          "got": [],
+          "ms": 0.044
+        },
+        {
+          "id": "hollow-tests/PC-16",
+          "kind": "positive",
+          "rule": "NO_ASSERTION",
+          "ok": true,
+          "got": [],
+          "ms": 0.209
+        },
+        {
+          "id": "hollow-tests/PC-17",
+          "kind": "positive",
+          "rule": "PROMISE_NOT_AWAITED",
+          "ok": true,
+          "got": [],
+          "ms": 0.175
+        },
+        {
+          "id": "hollow-tests/PC-18",
+          "kind": "positive",
+          "rule": "SWALLOWED_CATCH",
+          "ok": true,
+          "got": [],
+          "ms": 0.38
+        },
+        {
+          "id": "hollow-tests/PC-19",
+          "kind": "positive",
+          "rule": "SWALLOWED_CATCH",
+          "ok": true,
+          "got": [],
+          "ms": 0.247
+        },
+        {
+          "id": "hollow-tests/PC-20",
+          "kind": "positive",
+          "rule": "SWALLOWED_CATCH",
+          "ok": true,
+          "got": [],
+          "ms": 0.13
+        },
+        {
+          "id": "hollow-tests/PC-21",
+          "kind": "positive",
+          "rule": "SWALLOWED_CATCH",
+          "ok": true,
+          "got": [],
+          "ms": 0.254
+        },
+        {
+          "id": "hollow-tests/PC-22",
+          "kind": "positive",
+          "rule": "NO_ASSERTION",
+          "ok": true,
+          "got": [],
+          "ms": 0.059
+        },
+        {
+          "id": "hollow-tests/PC-23",
+          "kind": "positive",
+          "rule": "NO_ASSERTION",
+          "ok": true,
+          "got": [],
+          "ms": 0.103
+        },
+        {
+          "id": "hollow-tests/PC-24",
+          "kind": "positive",
+          "rule": "NO_ASSERTION",
+          "ok": true,
+          "got": [],
+          "ms": 0.081
+        }
+      ],
+      "nc_results": [
+        {
+          "id": "hollow-tests/NC-1",
+          "expect": "NO_ASSERTION",
+          "caught": true,
+          "ms": 4.101
+        },
+        {
+          "id": "hollow-tests/NC-2",
+          "expect": "TAUTOLOGICAL",
+          "caught": true,
+          "ms": 0.834
+        },
+        {
+          "id": "hollow-tests/NC-3",
+          "expect": "SWALLOWED_CATCH",
+          "caught": true,
+          "ms": 1.484
+        },
+        {
+          "id": "hollow-tests/NC-6",
+          "expect": "TAUTOLOGICAL",
+          "caught": true,
+          "ms": 1.922
+        },
+        {
+          "id": "hollow-tests/NC-4",
+          "expect": "NO_ASSERTION",
+          "caught": true,
+          "ms": 0.868
+        },
+        {
+          "id": "hollow-tests/NC-5",
+          "expect": "TAUTOLOGICAL",
+          "caught": true,
+          "ms": 0.378
+        },
+        {
+          "id": "hollow-tests/NC-7",
+          "expect": "PROMISE_NOT_AWAITED",
+          "caught": true,
+          "ms": 0.783
+        },
+        {
+          "id": "hollow-tests/NC-8",
+          "expect": "DONE_EARLY",
+          "caught": true,
+          "ms": 0.45
+        },
+        {
+          "id": "hollow-tests/NC-9",
+          "expect": "EARLY_RETURN",
+          "caught": true,
+          "ms": 0.34
+        },
+        {
+          "id": "hollow-tests/NC-10",
+          "expect": "MOCK_ONLY_ASSERTION",
+          "caught": true,
+          "ms": 0.58
+        },
+        {
+          "id": "hollow-tests/NC-11",
+          "expect": "TYPE_ONLY_ASSERTION",
+          "caught": true,
+          "ms": 0.424
+        },
+        {
+          "id": "hollow-tests/NC-12",
+          "expect": "KEY_PRESENCE_ONLY",
+          "caught": true,
+          "ms": 0.174
+        },
+        {
+          "id": "hollow-tests/NC-13",
+          "expect": "SWALLOWED_CATCH",
+          "caught": true,
+          "ms": 0.822
+        },
+        {
+          "id": "hollow-tests/NC-14",
+          "expect": "TAUTOLOGICAL",
+          "caught": true,
+          "ms": 0.767
+        },
+        {
+          "id": "hollow-tests/NC-15",
+          "expect": "TAUTOLOGICAL",
+          "caught": true,
+          "ms": 0.286
+        },
+        {
+          "id": "hollow-tests/NC-16",
+          "expect": "PROMISE_NOT_AWAITED",
+          "caught": true,
+          "ms": 0.573
+        },
+        {
+          "id": "hollow-tests/NC-17",
+          "expect": "NO_ASSERTION",
+          "caught": true,
+          "ms": 0.242
+        },
+        {
+          "id": "hollow-tests/NC-18",
+          "expect": "NO_ASSERTION",
+          "caught": true,
+          "ms": 0.125
+        },
+        {
+          "id": "hollow-tests/NC-19",
+          "expect": "NO_ASSERTION",
+          "caught": true,
+          "ms": 0.432
+        },
+        {
+          "id": "hollow-tests/NC-20",
+          "expect": "SWALLOWED_CATCH",
+          "caught": true,
+          "ms": 0.593
+        },
+        {
+          "id": "hollow-tests/NC-21",
+          "expect": "SWALLOWED_CATCH",
+          "caught": true,
+          "ms": 0.21
+        },
+        {
+          "id": "hollow-tests/NC-22",
+          "expect": "SWALLOWED_CATCH",
+          "caught": true,
+          "ms": 0.198
+        },
+        {
+          "id": "hollow-tests/NC-23",
+          "expect": "NO_ASSERTION",
+          "caught": true,
+          "ms": 0.07
+        },
+        {
+          "id": "hollow-tests/NC-24",
+          "expect": "NO_ASSERTION",
+          "caught": true,
+          "ms": 0.065
+        },
+        {
+          "id": "hollow-tests/NC-25",
+          "expect": "NO_ASSERTION",
+          "caught": true,
+          "ms": 0.08
+        }
+      ],
+      "scope_files": [],
+      "status": "NOT_MEASURED",
+      "filesScanned": 0,
+      "reason": "no file in this repository is in this engine's scope — an empty scan is not a pass"
+    },
+    {
+      "id": "gitleaks",
+      "version": "0.1.0",
+      "title": "Committed secrets (gitleaks, orchestrated)",
+      "provenance": "adapter over a gitleaks binary already on PATH (github.com/gitleaks/gitleaks, MIT); controls planted by Fini Proof",
+      "sha256": "5d437340db92de2fc152464d3f43c991a51450a68da3a49130750726fab18c29",
+      "controls": [],
+      "nc_results": [],
+      "scope_files": [],
+      "status": "NOT_APPLICABLE",
+      "filesScanned": 0,
+      "reason": "gitleaks is not on PATH, so the built-in secrets engine is primary (Fini Proof never downloads a scanner; install gitleaks to orchestrate it)"
+    },
+    {
+      "id": "secrets",
+      "version": "0.1.0",
+      "title": "Committed secrets",
+      "provenance": "finipe scripts/ci/check-secrets-and-log-redaction.mjs part (a) @ 4ac53b367; 4 patterns new",
+      "sha256": "7c4528582ae902eb13f7bbf549c7b1ff665651b3749cc700cf41621c8d4abede",
+      "controls": [
+        {
+          "id": "secrets/NC-1",
+          "kind": "negative",
+          "expect": "SECRET_AWS_ACCESS_KEY",
+          "ok": true,
+          "got": [
+            "SECRET_AWS_ACCESS_KEY"
+          ],
+          "ms": 1.052
+        },
+        {
+          "id": "secrets/NC-2",
+          "kind": "negative",
+          "expect": "SECRET_ENV_SECRET_ASSIGNMENT",
+          "ok": true,
+          "got": [
+            "SECRET_ENV_SECRET_ASSIGNMENT"
+          ],
+          "ms": 0.749
+        },
+        {
+          "id": "secrets/NC-3",
+          "kind": "negative",
+          "expect": "SECRET_PRIVATE_KEY_BLOCK",
+          "ok": true,
+          "got": [
+            "SECRET_PRIVATE_KEY_BLOCK"
+          ],
+          "ms": 0.058
+        },
+        {
+          "id": "secrets/NC-4",
+          "kind": "negative",
+          "expect": "SECRET_GITHUB_TOKEN",
+          "ok": true,
+          "got": [
+            "SECRET_GITHUB_TOKEN"
+          ],
+          "ms": 0.161
+        },
+        {
+          "id": "secrets/NC-5",
+          "kind": "negative",
+          "expect": "SECRET_HARDCODED_CREDENTIAL",
+          "ok": true,
+          "got": [
+            "SECRET_HARDCODED_CREDENTIAL"
+          ],
+          "ms": 0.218
+        },
+        {
+          "id": "secrets/NC-6",
+          "kind": "negative",
+          "expect": "SECRET_SLACK_TOKEN",
+          "ok": true,
+          "got": [
+            "SECRET_SLACK_TOKEN"
+          ],
+          "ms": 0.033
+        },
+        {
+          "id": "secrets/NC-7",
+          "kind": "negative",
+          "expect": "SECRET_STRIPE_LIVE_KEY",
+          "ok": true,
+          "got": [
+            "SECRET_STRIPE_LIVE_KEY"
+          ],
+          "ms": 0.11
+        },
+        {
+          "id": "secrets/NC-8",
+          "kind": "negative",
+          "expect": "SECRET_SENDGRID_KEY",
+          "ok": true,
+          "got": [
+            "SECRET_SENDGRID_KEY"
+          ],
+          "ms": 0.041
+        },
+        {
+          "id": "secrets/NC-9",
+          "kind": "negative",
+          "expect": "SECRET_JWT_ASSIGNED_TO_CONFIG",
+          "ok": true,
+          "got": [
+            "SECRET_JWT_ASSIGNED_TO_CONFIG"
+          ],
+          "ms": 0.033
+        },
+        {
+          "id": "secrets/NC-10",
+          "kind": "negative",
+          "expect": "SECRET_GOOGLE_API_KEY",
+          "ok": true,
+          "got": [
+            "SECRET_GOOGLE_API_KEY"
+          ],
+          "ms": 0.173
+        },
+        {
+          "id": "secrets/NC-12",
+          "kind": "negative",
+          "expect": "SECRET_HARDCODED_CREDENTIAL",
+          "ok": true,
+          "got": [
+            "SECRET_HARDCODED_CREDENTIAL"
+          ],
+          "ms": 0.168
+        },
+        {
+          "id": "secrets/NC-13",
+          "kind": "negative",
+          "expect": "SECRET_HARDCODED_CREDENTIAL",
+          "ok": true,
+          "got": [
+            "SECRET_HARDCODED_CREDENTIAL"
+          ],
+          "ms": 0.035
+        },
+        {
+          "id": "secrets/NC-11",
+          "kind": "negative",
+          "expect": "SECRET_LLM_API_KEY",
+          "ok": true,
+          "got": [
+            "SECRET_LLM_API_KEY"
+          ],
+          "ms": 0.058
+        },
+        {
+          "id": "secrets/PC-1",
+          "kind": "positive",
+          "rule": "SECRET_ENV_SECRET_ASSIGNMENT",
+          "ok": true,
+          "got": [],
+          "ms": 0.179
+        },
+        {
+          "id": "secrets/PC-13",
+          "kind": "positive",
+          "rule": "SECRET_HARDCODED_CREDENTIAL",
+          "ok": true,
+          "got": [],
+          "ms": 0.012
+        },
+        {
+          "id": "secrets/PC-3",
+          "kind": "positive",
+          "ok": true,
+          "got": [],
+          "ms": 0.007
+        },
+        {
+          "id": "secrets/PC-2",
+          "kind": "positive",
+          "rule": "SECRET_HARDCODED_CREDENTIAL",
+          "ok": true,
+          "got": [],
+          "ms": 0.009
+        },
+        {
+          "id": "secrets/PC-4",
+          "kind": "positive",
+          "rule": "SECRET_AWS_ACCESS_KEY",
+          "ok": true,
+          "got": [],
+          "ms": 0.011
+        },
+        {
+          "id": "secrets/PC-5",
+          "kind": "positive",
+          "rule": "SECRET_PRIVATE_KEY_BLOCK",
+          "ok": true,
+          "got": [],
+          "ms": 0.008
+        },
+        {
+          "id": "secrets/PC-6",
+          "kind": "positive",
+          "rule": "SECRET_GITHUB_TOKEN",
+          "ok": true,
+          "got": [],
+          "ms": 0.008
+        },
+        {
+          "id": "secrets/PC-7",
+          "kind": "positive",
+          "rule": "SECRET_SLACK_TOKEN",
+          "ok": true,
+          "got": [],
+          "ms": 0.008
+        },
+        {
+          "id": "secrets/PC-8",
+          "kind": "positive",
+          "rule": "SECRET_STRIPE_LIVE_KEY",
+          "ok": true,
+          "got": [],
+          "ms": 0.006
+        },
+        {
+          "id": "secrets/PC-9",
+          "kind": "positive",
+          "rule": "SECRET_SENDGRID_KEY",
+          "ok": true,
+          "got": [],
+          "ms": 0.005
+        },
+        {
+          "id": "secrets/PC-10",
+          "kind": "positive",
+          "rule": "SECRET_JWT_ASSIGNED_TO_CONFIG",
+          "ok": true,
+          "got": [],
+          "ms": 0.01
+        },
+        {
+          "id": "secrets/PC-11",
+          "kind": "positive",
+          "rule": "SECRET_GOOGLE_API_KEY",
+          "ok": true,
+          "got": [],
+          "ms": 0.008
+        },
+        {
+          "id": "secrets/PC-12",
+          "kind": "positive",
+          "rule": "SECRET_LLM_API_KEY",
+          "ok": true,
+          "got": [],
+          "ms": 0.006
+        }
+      ],
+      "nc_results": [
+        {
+          "id": "secrets/NC-1",
+          "expect": "SECRET_AWS_ACCESS_KEY",
+          "caught": true,
+          "ms": 1.052
+        },
+        {
+          "id": "secrets/NC-2",
+          "expect": "SECRET_ENV_SECRET_ASSIGNMENT",
+          "caught": true,
+          "ms": 0.749
+        },
+        {
+          "id": "secrets/NC-3",
+          "expect": "SECRET_PRIVATE_KEY_BLOCK",
+          "caught": true,
+          "ms": 0.058
+        },
+        {
+          "id": "secrets/NC-4",
+          "expect": "SECRET_GITHUB_TOKEN",
+          "caught": true,
+          "ms": 0.161
+        },
+        {
+          "id": "secrets/NC-5",
+          "expect": "SECRET_HARDCODED_CREDENTIAL",
+          "caught": true,
+          "ms": 0.218
+        },
+        {
+          "id": "secrets/NC-6",
+          "expect": "SECRET_SLACK_TOKEN",
+          "caught": true,
+          "ms": 0.033
+        },
+        {
+          "id": "secrets/NC-7",
+          "expect": "SECRET_STRIPE_LIVE_KEY",
+          "caught": true,
+          "ms": 0.11
+        },
+        {
+          "id": "secrets/NC-8",
+          "expect": "SECRET_SENDGRID_KEY",
+          "caught": true,
+          "ms": 0.041
+        },
+        {
+          "id": "secrets/NC-9",
+          "expect": "SECRET_JWT_ASSIGNED_TO_CONFIG",
+          "caught": true,
+          "ms": 0.033
+        },
+        {
+          "id": "secrets/NC-10",
+          "expect": "SECRET_GOOGLE_API_KEY",
+          "caught": true,
+          "ms": 0.173
+        },
+        {
+          "id": "secrets/NC-12",
+          "expect": "SECRET_HARDCODED_CREDENTIAL",
+          "caught": true,
+          "ms": 0.168
+        },
+        {
+          "id": "secrets/NC-13",
+          "expect": "SECRET_HARDCODED_CREDENTIAL",
+          "caught": true,
+          "ms": 0.035
+        },
+        {
+          "id": "secrets/NC-11",
+          "expect": "SECRET_LLM_API_KEY",
+          "caught": true,
+          "ms": 0.058
+        }
+      ],
+      "scope_files": [
+        ".env.example",
+        ".gitignore",
+        "README.md",
+        "client/index.html",
+        "client/src/App.tsx",
+        "client/src/components/GenerationSettings.tsx",
+        "client/src/components/GenerationStatus.tsx",
+        "client/src/components/ImageUploadCard.tsx",
+        "client/src/components/PromptEditor.tsx",
+        "client/src/components/VideoResult.tsx",
+        "client/src/main.tsx",
+        "client/src/services/api.ts",
+        "client/src/styles.css",
+        "client/tailwind.config.js",
+        "client/tsconfig.app.json",
+        "client/tsconfig.json",
+        "client/vite.config.ts",
+        "package.json",
+        "public/favicon.svg",
+        "server/src/config/runwayModels.ts",
+        "server/src/index.ts",
+        "server/src/routes/generate.ts",
+        "server/src/routes/task.ts",
+        "server/src/services/runway.ts",
+        "server/tsconfig.json"
+      ],
+      "status": "MEASURED",
+      "filesScanned": 25,
+      "measurements": {},
+      "findings": 1
+    },
+    {
+      "id": "fail-open",
+      "version": "0.2.0",
+      "title": "Fail-open CI steps and scripts",
+      "provenance": "finipe scripts/ci/check-entrypoint-guard.mjs rawGuards() @ 4ac53b367; CI/catch rules new",
+      "sha256": "2aedf5f05a9d0780d9e89201203304df53cb6a6a284a2059b72f2b2a569e2c59",
+      "controls": [
+        {
+          "id": "fail-open/NC-1",
+          "kind": "negative",
+          "expect": "OR_TRUE",
+          "ok": true,
+          "got": [
+            "OR_TRUE"
+          ],
+          "ms": 0.603
+        },
+        {
+          "id": "fail-open/NC-2",
+          "kind": "negative",
+          "expect": "CATCH_EXIT_ZERO",
+          "ok": true,
+          "got": [
+            "CATCH_EXIT_ZERO"
+          ],
+          "ms": 0.691
+        },
+        {
+          "id": "fail-open/NC-3",
+          "kind": "negative",
+          "expect": "RAW_ENTRYPOINT_GUARD",
+          "ok": true,
+          "got": [
+            "RAW_ENTRYPOINT_GUARD"
+          ],
+          "ms": 0.312
+        },
+        {
+          "id": "fail-open/NC-4",
+          "kind": "negative",
+          "expect": "EXCEPT_PASS",
+          "ok": true,
+          "got": [
+            "EXCEPT_PASS"
+          ],
+          "ms": 0.24
+        },
+        {
+          "id": "fail-open/NC-5",
+          "kind": "negative",
+          "expect": "OR_TRUE",
+          "ok": true,
+          "got": [
+            "OR_TRUE"
+          ],
+          "ms": 0.094
+        },
+        {
+          "id": "fail-open/NC-6",
+          "kind": "negative",
+          "expect": "SET_PLUS_E",
+          "ok": true,
+          "got": [
+            "SET_PLUS_E"
+          ],
+          "ms": 0.019
+        },
+        {
+          "id": "fail-open/NC-7",
+          "kind": "negative",
+          "expect": "CONTINUE_ON_ERROR",
+          "ok": true,
+          "got": [
+            "CONTINUE_ON_ERROR"
+          ],
+          "ms": 0.017
+        },
+        {
+          "id": "fail-open/NC-8",
+          "kind": "negative",
+          "expect": "ALLOW_FAILURE",
+          "ok": true,
+          "got": [
+            "ALLOW_FAILURE"
+          ],
+          "ms": 0.026
+        },
+        {
+          "id": "fail-open/NC-9",
+          "kind": "negative",
+          "expect": "EMPTY_CATCH",
+          "ok": true,
+          "got": [
+            "EMPTY_CATCH"
+          ],
+          "ms": 0.086
+        },
+        {
+          "id": "fail-open/NC-10",
+          "kind": "negative",
+          "expect": "EMPTY_CATCH",
+          "ok": true,
+          "got": [
+            "EMPTY_CATCH"
+          ],
+          "ms": 0.033
+        },
+        {
+          "id": "fail-open/PC-1",
+          "kind": "positive",
+          "rule": "OR_TRUE",
+          "ok": true,
+          "got": [],
+          "ms": 0.01
+        },
+        {
+          "id": "fail-open/PC-2",
+          "kind": "positive",
+          "rule": "RAW_ENTRYPOINT_GUARD",
+          "ok": true,
+          "got": [],
+          "ms": 0.198
+        },
+        {
+          "id": "fail-open/PC-3",
+          "kind": "positive",
+          "rule": "SET_PLUS_E",
+          "ok": true,
+          "got": [],
+          "ms": 0.011
+        },
+        {
+          "id": "fail-open/PC-4",
+          "kind": "positive",
+          "rule": "CONTINUE_ON_ERROR",
+          "ok": true,
+          "got": [],
+          "ms": 0.007
+        },
+        {
+          "id": "fail-open/PC-5",
+          "kind": "positive",
+          "rule": "ALLOW_FAILURE",
+          "ok": true,
+          "got": [],
+          "ms": 0.005
+        },
+        {
+          "id": "fail-open/PC-6",
+          "kind": "positive",
+          "rule": "EMPTY_CATCH",
+          "ok": true,
+          "got": [],
+          "ms": 0.142
+        },
+        {
+          "id": "fail-open/PC-7",
+          "kind": "positive",
+          "rule": "CATCH_EXIT_ZERO",
+          "ok": true,
+          "got": [],
+          "ms": 0.036
+        },
+        {
+          "id": "fail-open/PC-8",
+          "kind": "positive",
+          "rule": "EXCEPT_PASS",
+          "ok": true,
+          "got": [],
+          "ms": 0.049
+        },
+        {
+          "id": "fail-open/PC-9",
+          "kind": "positive",
+          "rule": "EMPTY_CATCH",
+          "ok": true,
+          "got": [],
+          "ms": 0.018
+        }
+      ],
+      "nc_results": [
+        {
+          "id": "fail-open/NC-1",
+          "expect": "OR_TRUE",
+          "caught": true,
+          "ms": 0.603
+        },
+        {
+          "id": "fail-open/NC-2",
+          "expect": "CATCH_EXIT_ZERO",
+          "caught": true,
+          "ms": 0.691
+        },
+        {
+          "id": "fail-open/NC-3",
+          "expect": "RAW_ENTRYPOINT_GUARD",
+          "caught": true,
+          "ms": 0.312
+        },
+        {
+          "id": "fail-open/NC-4",
+          "expect": "EXCEPT_PASS",
+          "caught": true,
+          "ms": 0.24
+        },
+        {
+          "id": "fail-open/NC-5",
+          "expect": "OR_TRUE",
+          "caught": true,
+          "ms": 0.094
+        },
+        {
+          "id": "fail-open/NC-6",
+          "expect": "SET_PLUS_E",
+          "caught": true,
+          "ms": 0.019
+        },
+        {
+          "id": "fail-open/NC-7",
+          "expect": "CONTINUE_ON_ERROR",
+          "caught": true,
+          "ms": 0.017
+        },
+        {
+          "id": "fail-open/NC-8",
+          "expect": "ALLOW_FAILURE",
+          "caught": true,
+          "ms": 0.026
+        },
+        {
+          "id": "fail-open/NC-9",
+          "expect": "EMPTY_CATCH",
+          "caught": true,
+          "ms": 0.086
+        },
+        {
+          "id": "fail-open/NC-10",
+          "expect": "EMPTY_CATCH",
+          "caught": true,
+          "ms": 0.033
+        }
+      ],
+      "scope_files": [
+        "client/src/services/api.ts",
+        "client/tailwind.config.js",
+        "client/vite.config.ts",
+        "package.json",
+        "server/src/config/runwayModels.ts",
+        "server/src/index.ts",
+        "server/src/routes/generate.ts",
+        "server/src/routes/task.ts",
+        "server/src/services/runway.ts"
+      ],
+      "status": "MEASURED",
+      "filesScanned": 9,
+      "measurements": {},
+      "findings": 1
+    },
+    {
+      "id": "skip-ratchet",
+      "version": "0.2.0",
+      "title": "Focused and skipped tests (ratchet)",
+      "provenance": "finipe check-vacuous-spec.mjs skip shapes + SKIP-LEDGER, fini-rule-ratchet.mjs semantics @ 4ac53b367",
+      "sha256": "e48548ea697fa8b7b52a4a2936a347d1092d8f062eb64652adb0edc3ac5d7d50",
+      "controls": [
+        {
+          "id": "skip-ratchet/NC-1",
+          "kind": "negative",
+          "expect": "FOCUSED_TEST",
+          "ok": true,
+          "got": [
+            "FOCUSED_TEST"
+          ],
+          "ms": 0.538
+        },
+        {
+          "id": "skip-ratchet/NC-2",
+          "kind": "negative",
+          "expect": "SKIP_RATCHET",
+          "ok": true,
+          "got": [
+            "SKIP_RATCHET"
+          ],
+          "ms": 0.159
+        },
+        {
+          "id": "skip-ratchet/NC-3",
+          "kind": "negative",
+          "expect": "SKIP_RATCHET",
+          "ok": true,
+          "got": [
+            "SKIP_RATCHET"
+          ],
+          "ms": 0.297
+        },
+        {
+          "id": "skip-ratchet/PC-1",
+          "kind": "positive",
+          "rule": "SKIP_RATCHET",
+          "ok": true,
+          "got": [],
+          "ms": 0.034
+        },
+        {
+          "id": "skip-ratchet/PC-2",
+          "kind": "positive",
+          "rule": "FOCUSED_TEST",
+          "ok": true,
+          "got": [],
+          "ms": 0.018
+        },
+        {
+          "id": "skip-ratchet/PC-3",
+          "kind": "positive",
+          "rule": "SKIP_RATCHET",
+          "ok": true,
+          "got": [],
+          "ms": 0.04
+        }
+      ],
+      "nc_results": [
+        {
+          "id": "skip-ratchet/NC-1",
+          "expect": "FOCUSED_TEST",
+          "caught": true,
+          "ms": 0.538
+        },
+        {
+          "id": "skip-ratchet/NC-2",
+          "expect": "SKIP_RATCHET",
+          "caught": true,
+          "ms": 0.159
+        },
+        {
+          "id": "skip-ratchet/NC-3",
+          "expect": "SKIP_RATCHET",
+          "caught": true,
+          "ms": 0.297
+        }
+      ],
+      "scope_files": [],
+      "status": "NOT_MEASURED",
+      "filesScanned": 0,
+      "reason": "no file in this repository is in this engine's scope — an empty scan is not a pass"
+    },
+    {
+      "id": "tenant-filter",
+      "version": "0.3.0",
+      "title": "Tenant filter missing on multi-tenant queries",
+      "provenance": "finipe .github/scripts/check-tenant-scoping.js detector shapes @ 4ac53b367 (last changed 990d528dd); windows → balanced extents, schema-aware table set new",
+      "sha256": "0ec7b552ddfa7a1a93b731f8687ebe22fcdf19a732955464e167fa620e6212cc",
+      "controls": [
+        {
+          "id": "tenant-filter/NC-1",
+          "kind": "negative",
+          "expect": "TENANT_FILTER_MISSING",
+          "ok": true,
+          "got": [
+            "TENANT_FILTER_MISSING"
+          ],
+          "ms": 1.906
+        },
+        {
+          "id": "tenant-filter/NC-2",
+          "kind": "negative",
+          "expect": "TENANT_FILTER_MISSING",
+          "ok": true,
+          "got": [
+            "TENANT_FILTER_MISSING"
+          ],
+          "ms": 1.229
+        },
+        {
+          "id": "tenant-filter/NC-3",
+          "kind": "negative",
+          "expect": "TENANT_FILTER_MISSING",
+          "ok": true,
+          "got": [
+            "TENANT_FILTER_MISSING"
+          ],
+          "ms": 0.516
+        },
+        {
+          "id": "tenant-filter/NC-4",
+          "kind": "negative",
+          "expect": "TENANT_FILTER_MISSING",
+          "ok": true,
+          "got": [
+            "TENANT_FILTER_MISSING"
+          ],
+          "ms": 0.98
+        },
+        {
+          "id": "tenant-filter/NC-6",
+          "kind": "negative",
+          "expect": "TENANT_FILTER_MISSING",
+          "ok": true,
+          "got": [
+            "TENANT_FILTER_MISSING"
+          ],
+          "ms": 0.265
+        },
+        {
+          "id": "tenant-filter/NC-7",
+          "kind": "negative",
+          "expect": "TENANT_FILTER_MISSING",
+          "ok": true,
+          "got": [
+            "TENANT_FILTER_MISSING"
+          ],
+          "ms": 0.206
+        },
+        {
+          "id": "tenant-filter/NC-8",
+          "kind": "negative",
+          "expect": "TENANT_FILTER_UNPROVEN",
+          "ok": true,
+          "got": [
+            "TENANT_FILTER_UNPROVEN"
+          ],
+          "ms": 0.177
+        },
+        {
+          "id": "tenant-filter/NC-9",
+          "kind": "negative",
+          "expect": "TENANT_FILTER_MISSING",
+          "ok": true,
+          "got": [
+            "TENANT_FILTER_MISSING"
+          ],
+          "ms": 0.562
+        },
+        {
+          "id": "tenant-filter/NC-5",
+          "kind": "negative",
+          "expect": "TENANT_FILTER_MISSING",
+          "ok": true,
+          "got": [
+            "TENANT_FILTER_MISSING"
+          ],
+          "ms": 0.454
+        },
+        {
+          "id": "tenant-filter/PC-1",
+          "kind": "positive",
+          "rule": "TENANT_FILTER_MISSING",
+          "ok": true,
+          "got": [],
+          "ms": 0.344
+        },
+        {
+          "id": "tenant-filter/PC-2",
+          "kind": "positive",
+          "ok": true,
+          "got": [],
+          "ms": 0.039
+        },
+        {
+          "id": "tenant-filter/PC-4",
+          "kind": "positive",
+          "ok": true,
+          "got": [],
+          "ms": 0.553
+        },
+        {
+          "id": "tenant-filter/PC-7",
+          "kind": "positive",
+          "ok": true,
+          "got": [],
+          "ms": 0.429
+        },
+        {
+          "id": "tenant-filter/PC-8",
+          "kind": "positive",
+          "ok": true,
+          "got": [],
+          "ms": 0.883
+        },
+        {
+          "id": "tenant-filter/PC-9",
+          "kind": "positive",
+          "ok": true,
+          "got": [],
+          "ms": 0.646
+        },
+        {
+          "id": "tenant-filter/PC-6",
+          "kind": "positive",
+          "ok": true,
+          "got": [],
+          "ms": 0.037
+        },
+        {
+          "id": "tenant-filter/PC-5",
+          "kind": "positive",
+          "ok": true,
+          "got": [],
+          "ms": 0.027
+        },
+        {
+          "id": "tenant-filter/PC-10",
+          "kind": "positive",
+          "rule": "TENANT_FILTER_UNPROVEN",
+          "ok": true,
+          "got": [],
+          "ms": 0.077
+        },
+        {
+          "id": "tenant-filter/PC-3",
+          "kind": "positive",
+          "ok": true,
+          "got": [],
+          "ms": 0.111
+        }
+      ],
+      "nc_results": [
+        {
+          "id": "tenant-filter/NC-1",
+          "expect": "TENANT_FILTER_MISSING",
+          "caught": true,
+          "ms": 1.906
+        },
+        {
+          "id": "tenant-filter/NC-2",
+          "expect": "TENANT_FILTER_MISSING",
+          "caught": true,
+          "ms": 1.229
+        },
+        {
+          "id": "tenant-filter/NC-3",
+          "expect": "TENANT_FILTER_MISSING",
+          "caught": true,
+          "ms": 0.516
+        },
+        {
+          "id": "tenant-filter/NC-4",
+          "expect": "TENANT_FILTER_MISSING",
+          "caught": true,
+          "ms": 0.98
+        },
+        {
+          "id": "tenant-filter/NC-6",
+          "expect": "TENANT_FILTER_MISSING",
+          "caught": true,
+          "ms": 0.265
+        },
+        {
+          "id": "tenant-filter/NC-7",
+          "expect": "TENANT_FILTER_MISSING",
+          "caught": true,
+          "ms": 0.206
+        },
+        {
+          "id": "tenant-filter/NC-8",
+          "expect": "TENANT_FILTER_UNPROVEN",
+          "caught": true,
+          "ms": 0.177
+        },
+        {
+          "id": "tenant-filter/NC-9",
+          "expect": "TENANT_FILTER_MISSING",
+          "caught": true,
+          "ms": 0.562
+        },
+        {
+          "id": "tenant-filter/NC-5",
+          "expect": "TENANT_FILTER_MISSING",
+          "caught": true,
+          "ms": 0.454
+        }
+      ],
+      "scope_files": [],
+      "status": "NOT_APPLICABLE",
+      "filesScanned": 0,
+      "measurements": {
+        "tenantColumns": [
+          "tenant_id",
+          "tenantId"
+        ],
+        "tenantTables": [],
+        "tablesFrom": "schema:migrations"
+      },
+      "reason": "no multi-tenant table found (no schema declares tenant_id / tenantId; set \"tenant\": { \"column\": …, \"tables\": [...] } in .fini-proof.json)"
+    },
+    {
+      "id": "migrations",
+      "version": "0.3.0",
+      "title": "Dangerous database migrations",
+      "provenance": "finipe scripts/ci/lib/migration-invariants.cjs expandStatic + down() rules @ 4ac53b367 (last changed 18ce3086b); destructive-change rules new",
+      "sha256": "3d03e4621ce36cd5d9361a2d564119b5097ed8c0ab802ebd64c85f3e2480d960",
+      "controls": [
+        {
+          "id": "migrations/NC-1",
+          "kind": "negative",
+          "expect": "DROP_COLUMN",
+          "ok": true,
+          "got": [
+            "DROP_COLUMN"
+          ],
+          "ms": 2.311
+        },
+        {
+          "id": "migrations/NC-2",
+          "kind": "negative",
+          "expect": "ADD_NOT_NULL_NO_DEFAULT",
+          "ok": true,
+          "got": [
+            "ADD_NOT_NULL_NO_DEFAULT"
+          ],
+          "ms": 0.823
+        },
+        {
+          "id": "migrations/NC-3",
+          "kind": "negative",
+          "expect": "ALTER_COLUMN_TYPE",
+          "ok": true,
+          "got": [
+            "ALTER_COLUMN_TYPE"
+          ],
+          "ms": 1.844
+        },
+        {
+          "id": "migrations/NC-4",
+          "kind": "negative",
+          "expect": "MISSING_DOWN",
+          "ok": true,
+          "got": [
+            "MISSING_DOWN"
+          ],
+          "ms": 0.398
+        },
+        {
+          "id": "migrations/NC-5",
+          "kind": "negative",
+          "expect": "DROP_TABLE",
+          "ok": true,
+          "got": [
+            "DROP_TABLE"
+          ],
+          "ms": 0.794
+        },
+        {
+          "id": "migrations/NC-7",
+          "kind": "negative",
+          "expect": "DROP_COLUMN",
+          "ok": true,
+          "got": [
+            "DROP_COLUMN"
+          ],
+          "ms": 0.233
+        },
+        {
+          "id": "migrations/NC-6",
+          "kind": "negative",
+          "expect": "ADD_NOT_NULL_NO_DEFAULT",
+          "ok": true,
+          "got": [
+            "ADD_NOT_NULL_NO_DEFAULT"
+          ],
+          "ms": 0.59
+        },
+        {
+          "id": "migrations/NC-8",
+          "kind": "negative",
+          "expect": "SET_NOT_NULL",
+          "ok": true,
+          "got": [
+            "SET_NOT_NULL"
+          ],
+          "ms": 0.344
+        },
+        {
+          "id": "migrations/NC-9",
+          "kind": "negative",
+          "expect": "DOWN_INCOMPLETE",
+          "ok": true,
+          "got": [
+            "DOWN_INCOMPLETE"
+          ],
+          "ms": 0.358
+        },
+        {
+          "id": "migrations/NC-10",
+          "kind": "negative",
+          "expect": "DOWN_ORDER",
+          "ok": true,
+          "got": [
+            "DOWN_ORDER"
+          ],
+          "ms": 0.239
+        },
+        {
+          "id": "migrations/PC-6",
+          "kind": "positive",
+          "rule": "SET_NOT_NULL",
+          "ok": true,
+          "got": [],
+          "ms": 0.138
+        },
+        {
+          "id": "migrations/PC-7",
+          "kind": "positive",
+          "rule": "DOWN_INCOMPLETE",
+          "ok": true,
+          "got": [],
+          "ms": 0.131
+        },
+        {
+          "id": "migrations/PC-8",
+          "kind": "positive",
+          "rule": "MISSING_DOWN",
+          "ok": true,
+          "got": [],
+          "ms": 0.089
+        },
+        {
+          "id": "migrations/PC-9",
+          "kind": "positive",
+          "rule": "ALTER_COLUMN_TYPE",
+          "ok": true,
+          "got": [],
+          "ms": 0.055
+        },
+        {
+          "id": "migrations/PC-1",
+          "kind": "positive",
+          "rule": "ADD_NOT_NULL_NO_DEFAULT",
+          "ok": true,
+          "got": [],
+          "ms": 0.149
+        },
+        {
+          "id": "migrations/PC-2",
+          "kind": "positive",
+          "rule": "DOWN_ORDER",
+          "ok": true,
+          "got": [],
+          "ms": 0.407
+        },
+        {
+          "id": "migrations/PC-3",
+          "kind": "positive",
+          "rule": "DROP_COLUMN",
+          "ok": true,
+          "got": [],
+          "ms": 0.073
+        },
+        {
+          "id": "migrations/PC-5",
+          "kind": "positive",
+          "rule": "DROP_TABLE",
+          "ok": true,
+          "got": [],
+          "ms": 0.281
+        },
+        {
+          "id": "migrations/PC-4",
+          "kind": "positive",
+          "ok": true,
+          "got": [],
+          "ms": 0.404
+        }
+      ],
+      "nc_results": [
+        {
+          "id": "migrations/NC-1",
+          "expect": "DROP_COLUMN",
+          "caught": true,
+          "ms": 2.311
+        },
+        {
+          "id": "migrations/NC-2",
+          "expect": "ADD_NOT_NULL_NO_DEFAULT",
+          "caught": true,
+          "ms": 0.823
+        },
+        {
+          "id": "migrations/NC-3",
+          "expect": "ALTER_COLUMN_TYPE",
+          "caught": true,
+          "ms": 1.844
+        },
+        {
+          "id": "migrations/NC-4",
+          "expect": "MISSING_DOWN",
+          "caught": true,
+          "ms": 0.398
+        },
+        {
+          "id": "migrations/NC-5",
+          "expect": "DROP_TABLE",
+          "caught": true,
+          "ms": 0.794
+        },
+        {
+          "id": "migrations/NC-7",
+          "expect": "DROP_COLUMN",
+          "caught": true,
+          "ms": 0.233
+        },
+        {
+          "id": "migrations/NC-6",
+          "expect": "ADD_NOT_NULL_NO_DEFAULT",
+          "caught": true,
+          "ms": 0.59
+        },
+        {
+          "id": "migrations/NC-8",
+          "expect": "SET_NOT_NULL",
+          "caught": true,
+          "ms": 0.344
+        },
+        {
+          "id": "migrations/NC-9",
+          "expect": "DOWN_INCOMPLETE",
+          "caught": true,
+          "ms": 0.358
+        },
+        {
+          "id": "migrations/NC-10",
+          "expect": "DOWN_ORDER",
+          "caught": true,
+          "ms": 0.239
+        }
+      ],
+      "scope_files": [],
+      "status": "NOT_APPLICABLE",
+      "filesScanned": 0,
+      "reason": "no migration file in this repository (paths under migrations/, migrate/, db/migrate/, alembic/versions/)"
+    }
+  ],
+  "findings": [
+    {
+      "line": 1,
+      "rule": "SECRET_ENV_SECRET_ASSIGNMENT",
+      "severity": "high",
+      "message": "env-secret-assignment committed to the repository (RUNW…T=<reda…rt>). Anyone with read access has it. FIX: rotate it now, then load it from the environment or a secret manager.",
+      "file": ".env.example",
+      "engine": "secrets",
+      "property_id": "secrets/SECRET_ENV_SECRET_ASSIGNMENT",
+      "negativeControl": "secrets/NC-2",
+      "proof": "npx fini-proof prove --engine secrets --file \".env.example\" --line 1",
+      "blocking": true
+    },
+    {
+      "line": 24,
+      "rule": "EMPTY_CATCH",
+      "severity": "medium",
+      "message": "`.catch(() => {})` swallows the rejection — the script carries on as if it succeeded. FIX: let it reject, or log and exit non-zero.",
+      "file": "client/src/services/api.ts",
+      "engine": "fail-open",
+      "property_id": "fail-open/EMPTY_CATCH",
+      "negativeControl": "fail-open/NC-9",
+      "proof": "npx fini-proof prove --engine fail-open --file \"client/src/services/api.ts\" --line 24",
+      "blocking": false
+    }
+  ],
+  "inputs": {
+    "files": 26,
+    "digest": "82287db0fe235ffe62594c49fd71d0e3942644fa10b98ec6f7d05d085d0bab1a",
+    "perFile": {
+      ".env.example": "d3a42fba11ab6a1809028e8fd0b189af11c52a968d8b9153095c09c10b1ca040",
+      ".gitignore": "3e2353e1990b73261e4fee00def5643814aff1df8d60ccc1bd97ffb6c13861d2",
+      "README.md": "ac4a9e2e6f1a9df34666f7501fd4cad12a05518bf1ab0b7a701823299f4eefa0",
+      "client/index.html": "4faf48e0ed54f5c45ccbc53ac90a06a303289662c80c206068762899310c5be4",
+      "client/src/App.tsx": "505db4da00ba5afacf577785d9f480ac8102eb52d7e781b153416b0daa070c25",
+      "client/src/components/GenerationSettings.tsx": "382cbe944c8b45c9ea1cfdc6216424f79314d3a2df923445dc425f47ca2260f2",
+      "client/src/components/GenerationStatus.tsx": "8f0b6bd33abd083adee0b1360515d4f78b60f61fd6215176a4566ce9a236d197",
+      "client/src/components/ImageUploadCard.tsx": "76a42f1ad97d39d0bc383e103b2670958821ebb929ea817e83abf81f91b944aa",
+      "client/src/components/PromptEditor.tsx": "3f8a0e5d8a1fca1c7d63f91d23b064af1d0541b3f9306e8ab434e8f0d5aae6f9",
+      "client/src/components/VideoResult.tsx": "78d46acbdd798343865a2b99356b07465c96c30879a5bbd39b54ff00c96398ea",
+      "client/src/main.tsx": "a920ec27028d3f1997c93d79da61fa77c0ff613085a6fb2a8ea2dea92cab28a9",
+      "client/src/services/api.ts": "ccfca3cea3683199fc97509fc43fc5530813eb4db9e2287ed01f3eaa7d35daf8",
+      "client/src/styles.css": "bdb2279aa226c290b16020ce3f6c93c55f5abf67097d88298b27041f5c20f8b7",
+      "client/tailwind.config.js": "276b8935131c08959326cedb85718052975107c24048d5d5f326163dbd2b2cfa",
+      "client/tsconfig.app.json": "618322dde877a7d8401fcc7d025c034629ad107a18a7db7592ee5b5055d0b476",
+      "client/tsconfig.json": "cc32a3c2be133425d30e112e3dc863c9dbe1ecbbdd81123abf6d6a0300a8ae5c",
+      "client/vite.config.ts": "82d3d9f02a24aeec39fa05ea7fb42cb7ee7dd52100fe749ddf2f49a07ef3260f",
+      "package.json": "968aa347f31820e1c161886f137b4cb040eb397d0b41fa47757ea10903870041",
+      "public/favicon.svg": "95b8e651823dccd4ae9d5cbf73b234503f0d0346a1fa9fa1c85bda90a91e715c",
+      "server/src/config/runwayModels.ts": "73d6e6c92f82e64d0c332de93996c08efde1d48d41d295c5ba203b66c62c5d39",
+      "server/src/index.ts": "2ec4964dacc709d19a580d8d0860e679a8dccb079f08207787549f6a2bb7aae0",
+      "server/src/routes/generate.ts": "de59dee03d95375d47505536bbc7fd0d96dcb7485f04a389c1a86fe402d8afc3",
+      "server/src/routes/task.ts": "0a9bbced346cdccbdfdb3bfa7845033a03a8330b5ea847d853402c2ab0edaa5f",
+      "server/src/services/runway.ts": "3ffe27a9569c82f24ef7b604668ebb98e95a44e5274e42a6fca04462035e9ce6",
+      "server/tsconfig.json": "a99ea51ce03ad8622c4a94566ef4b343d840e94eeda9f587ade797de823052e6",
+      "package-lock.json": "502bc3176c152f6ff5aa43f94585b1f38180f9fd051dc3e56252527effcf37e5"
+    }
+  },
+  "summary": {
+    "findings": 2,
+    "blocking": 1,
+    "enginesMeasured": 2,
+    "enginesNotMeasured": 2
+  },
+  "verdict": "FAIL",
+  "context": {
+    "schema": "fini-proof/proof-context@1",
+    "tool_version": "0.6.2",
+    "runner_digest": "7319648fbd82f69df5706d5b47a801a53c63224638d846a02f67d95eceee74a5",
+    "config_sha256": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a",
+    "baseline_sha256": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a",
+    "scope_sources": {
+      ".fini-proof.json": null,
+      ".gitignore": "3e2353e1990b73261e4fee00def5643814aff1df8d60ccc1bd97ffb6c13861d2",
+      ".git/info/exclude": "6671fe83b7a07c8932ee89164d1f2793b2318058eb8b98dc5c06ee0a5a3b0ec1",
+      "core.excludesFile": null
+    },
+    "scope": {
+      "mode": "full",
+      "base": null,
+      "only": null
+    },
+    "fail_on": "high",
+    "engines": {
+      "hollow-tests": "eda2974fe97514f2ae3c52ffa397a49878293b8fadf8ced47986dd5a2471a866",
+      "gitleaks": "5d437340db92de2fc152464d3f43c991a51450a68da3a49130750726fab18c29",
+      "secrets": "7c4528582ae902eb13f7bbf549c7b1ff665651b3749cc700cf41621c8d4abede",
+      "fail-open": "2aedf5f05a9d0780d9e89201203304df53cb6a6a284a2059b72f2b2a569e2c59",
+      "skip-ratchet": "e48548ea697fa8b7b52a4a2936a347d1092d8f062eb64652adb0edc3ac5d7d50",
+      "tenant-filter": "0ec7b552ddfa7a1a93b731f8687ebe22fcdf19a732955464e167fa620e6212cc",
+      "migrations": "3d03e4621ce36cd5d9361a2d564119b5097ed8c0ab802ebd64c85f3e2480d960"
+    },
+    "digest": "6dff6845d1b2a8f607acbc6a2acbdec4a4af7235f91e0985ade26d6aa1623b81"
+  },
+  "attestation": {
+    "maker": {
+      "kind": "unknown",
+      "id": "mayank.agrawal210503@gmail.com",
+      "source": "git-author"
+    },
+    "verifier": {
+      "tool": "fini-proof",
+      "version": "0.6.2",
+      "engine_digests": {
+        "hollow-tests": "eda2974fe97514f2ae3c52ffa397a49878293b8fadf8ced47986dd5a2471a866",
+        "gitleaks": "5d437340db92de2fc152464d3f43c991a51450a68da3a49130750726fab18c29",
+        "secrets": "7c4528582ae902eb13f7bbf549c7b1ff665651b3749cc700cf41621c8d4abede",
+        "fail-open": "2aedf5f05a9d0780d9e89201203304df53cb6a6a284a2059b72f2b2a569e2c59",
+        "skip-ratchet": "e48548ea697fa8b7b52a4a2936a347d1092d8f062eb64652adb0edc3ac5d7d50",
+        "tenant-filter": "0ec7b552ddfa7a1a93b731f8687ebe22fcdf19a732955464e167fa620e6212cc",
+        "migrations": "3d03e4621ce36cd5d9361a2d564119b5097ed8c0ab802ebd64c85f3e2480d960"
+      },
+      "runner": {
+        "host_digest": "d3333a240b3af636",
+        "ci": null
+      }
+    }
+  },
+  "finishedAt": "2026-10-09T10:44:28.711Z",
+  "evidenceDigest": "336b1c49fdccd0fed0eed6cba2463b79750d2cd69517648f69e9a6c3134c3f9b",
+  "entitlement": {
+    "mode": "trial",
+    "daysLeft": 7,
+    "trialEnds": "2026-10-16T10:40:57.434Z",
+    "runsLeft": 5
+  }
+}

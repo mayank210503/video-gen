@@ -43,7 +43,10 @@ app.get('*', (request, response, next) => {
 app.use((error: unknown, _request: Request, response: Response, _next: NextFunction) => {
   let normalized = error;
   if (error instanceof multer.MulterError && error.code === 'LIMIT_FILE_SIZE') {
-    normalized = new RunwayError(413, 'IMAGE_TOO_LARGE', 'Each image must be 16 MB or smaller.');
+    normalized = new RunwayError(413, 'REFERENCE_TOO_LARGE', 'Each image must be 16 MB or smaller and the reference video 64 MB or smaller.');
+  }
+  if (error instanceof multer.MulterError && error.code !== 'LIMIT_FILE_SIZE') {
+    normalized = new RunwayError(400, 'VALIDATION_ERROR', 'Invalid reference fields or too many files. Use up to four gym images, one logo, and one reference video.');
   }
   if (normalized instanceof RunwayError) {
     response.status(normalized.status >= 400 && normalized.status < 600 ? normalized.status : 500).json({
